@@ -1,0 +1,4 @@
+// Shared by every configuration (see configFiles in project.yml).
+// Personal signing settings live in Local.xcconfig, which is not committed.
+// Copy Local.xcconfig.example to Local.xcconfig and fill it in.
+#include? "Local.xcconfig"

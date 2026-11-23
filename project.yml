@@ -1,0 +1,78 @@
+name: AIBank
+options:
+  postGenCommand: scripts/fix-skillsbundle.sh
+  fileTypes:
+    skillsbundle:
+      file: true
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "27.3"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+configFiles:
+  Debug: Config/Signing.xcconfig
+  Release: Config/Signing.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+packages:
+  AIBankKit:
+    path: Packages/AIBankKit
+targets:
+  AIBank:
+    type: application
+    platform: iOS
+    sources:
+      - path: AIBank
+        excludes:
+          - "Skills.skillsbundle/**"
+      - path: AIBank/Skills.skillsbundle
+        buildPhase: resources
+    dependencies:
+      - package: AIBankKit
+        product: AIBankCore
+      - package: AIBankKit
+        product: AIBankBoundary
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.aibank
+        PRODUCT_NAME: aiBank
+        PRODUCT_MODULE_NAME: AIBank
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: aiBank
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown"
+        INFOPLIST_KEY_UIUserInterfaceStyle: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1,2"
+  AIBankTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AIBankTests
+    dependencies:
+      - target: AIBank
+      - package: AIBankKit
+        product: AIBankCore
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.aibank.tests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/aiBank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aiBank"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+  AIBank:
+    build:
+      targets:
+        AIBank: all
+    test:
+      targets:
+        - AIBankTests
+    run:
+      config: Debug

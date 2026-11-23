@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <g fill="#FFFFFF" transform="translate(0 19)">
+    <path fill-rule="evenodd" d="M512 200 L206 409 L818 409 Z M556 288 Q563.5 334.5 610 342 Q563.5 349.5 556 396 Q548.5 349.5 502 342 Q548.5 334.5 556 288 Z M446 268 Q450.2 293.8 476 298 Q450.2 302.2 446 328 Q441.8 302.2 416 298 Q441.8 293.8 446 268 Z M438 350 Q440.5 365.5 456 368 Q440.5 370.5 438 386 Q435.5 370.5 420 368 Q435.5 365.5 438 350 Z"/>
+    <rect x="236" y="501" width="80" height="212" rx="6"/>
+    <rect x="393" y="501" width="80" height="212" rx="6"/>
+    <rect x="551" y="501" width="80" height="212" rx="6"/>
+    <rect x="708" y="501" width="80" height="212" rx="6"/>
+    <rect x="206" y="741" width="612" height="44" rx="8"/>
+  </g>
+</svg>

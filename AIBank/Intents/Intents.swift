@@ -27,7 +27,7 @@ enum BankIntentError: Error, CustomLocalizedStringResourceConvertible {
 struct GetAccountsIntent {
     static let title: LocalizedStringResource = "Get Accounts"
     static let description = IntentDescription(
-        "Lists all of the person's aiBank accounts with their current balances and available funds. Use it to answer how much money they have, what an account's balance is, or how much they owe on a credit card. If the person isn't signed in to aiBank, it asks them to sign in first.",
+        "Lists all of the person's aiBank accounts with their current balances and available funds. Use it to answer how much money they have, what an account's balance is, or how much they owe on a credit card, and to look up the accounts before sending money or paying a bill. If the person isn't signed in to aiBank, it asks them to sign in first.",
         searchKeywords: ["balance", "how much money", "accounts", "net worth", "credit card balance"])
     static let authenticationPolicy: IntentAuthenticationPolicy = .requiresAuthentication
     // Runs in the background, and only comes forward when the person needs to sign in first.
@@ -36,14 +36,13 @@ struct GetAccountsIntent {
     @Dependency var client: BankClient
     @Dependency var store: AppStore
 
-    func perform() async throws -> some ReturnsValue<[AccountEntity]> & ProvidesDialog & ShowsSnippetIntent {
-        let accounts = AccountsOverview(accounts: try await afterSigningIn(store: store, reason: "see your balances") { [client] in
+    // Value only: no dialog and no card. Skills call this as the first step of a payment, and a spoken
+    // balance summary there reads as the final answer, so Siri stopped before the payment tool.
+    func perform() async throws -> some ReturnsValue<[AccountEntity]> {
+        let accounts = try await afterSigningIn(store: store, reason: "see your accounts") { [client] in
             try await client.accounts()
-        })
-        let summary = "You have \(accounts.totalDeposits.formatted) in deposit accounts"
-            + (accounts.totalOwed.isZero ? "." : " and owe \(accounts.totalOwed.formatted).")
-        return .result(value: accounts.accounts.map(AccountEntity.init), dialog: "\(summary)",
-                       snippetIntent: BalancesSnippetIntent())
+        }
+        return .result(value: accounts.map(AccountEntity.init))
     }
 }
 
@@ -205,6 +204,27 @@ struct PayBillIntent {
     }
 }
 
+// MARK: - Balances answer (not a tool: the "What are my balances" phrase shows it; Siri's tools stay value-only)
+
+struct ShowBalancesIntent: AppIntent {
+    static let title: LocalizedStringResource = "Show Balances"
+    static let description = IntentDescription("Says and shows the totals of the person's aiBank accounts: what they have and what they owe.")
+    static let authenticationPolicy: IntentAuthenticationPolicy = .requiresAuthentication
+    static var supportedModes: IntentModes { [.background, .foreground(.dynamic)] }
+
+    @Dependency var client: BankClient
+    @Dependency var store: AppStore
+
+    func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetIntent {
+        let accounts = AccountsOverview(accounts: try await afterSigningIn(store: store, reason: "see your balances") { [client] in
+            try await client.accounts()
+        })
+        let summary = "You have \(accounts.totalDeposits.formatted) in deposit accounts"
+            + (accounts.totalOwed.isZero ? "." : " and owe \(accounts.totalOwed.formatted).")
+        return .result(dialog: "\(summary)", snippetIntent: BalancesSnippetIntent())
+    }
+}
+
 // MARK: - Navigation (not tools: they only make sense with the app on screen)
 
 struct OpenSectionIntent: AppIntent {
@@ -252,7 +272,7 @@ struct ShowATMIntent: OpenIntent {
 struct AIBankShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
-            intent: GetAccountsIntent(),
+            intent: ShowBalancesIntent(),
             phrases: ["What are my balances in \(.applicationName)", "Show my accounts in \(.applicationName)"],
             shortTitle: "My Balances", systemImageName: "creditcard")
         AppShortcut(

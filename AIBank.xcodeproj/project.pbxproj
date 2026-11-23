@@ -18,6 +18,7 @@
 		78D6C05D30BD7821B8461D29 /* AIBankCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C71BC90E5DD0C11119B138C /* AIBankCore */; };
 		7ACC1E2C89321ACFD1FCB877 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD995F0D617196BBF360FD40 /* TransactionsView.swift */; };
 		7E37B5434660AEC6CCB76D58 /* Snippets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FB45099C06FDC99D38EA18 /* Snippets.swift */; };
+		81233682CC0CE985F434F512 /* AIBankSiriEvaluationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F6B2CE861C2E440175C37 /* AIBankSiriEvaluationTests.swift */; };
 		8A7289B48807F3AA683B5368 /* ETransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BDBBE831FB37C34EB326AF /* ETransferView.swift */; };
 		8DC70D069E37B264C8C2D209 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = B3239A8AB35BCF7972B6300C /* AppIcon.icon */; };
 		9DD447B4CE5C673D56AE8FE5 /* AIBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F736F8241939D78317FAED /* AIBankApp.swift */; };
@@ -39,6 +40,13 @@
 			remoteGlobalIDString = 2764BCC75ED1753D08725DFD;
 			remoteInfo = AIBank;
 		};
+		9FAD03A2870DD6DE7990FD4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A72A60454C81178F2B8F582E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2764BCC75ED1753D08725DFD;
+			remoteInfo = AIBank;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +58,7 @@
 		4F04ED91D771DCBF5E159017 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		633A9F153190043A5BEAAC20 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
 		66F736F8241939D78317FAED /* AIBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBankApp.swift; sourceTree = "<group>"; };
+		67F6E9E418D48C56893B6E9B /* AIBankSiriEvaluations.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AIBankSiriEvaluations.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FB45099C06FDC99D38EA18 /* Snippets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippets.swift; sourceTree = "<group>"; };
 		740A991FA38F2AD62A74E785 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 		782C4FC911FCDF95EF658241 /* AIBankKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AIBankKit; path = Packages/AIBankKit; sourceTree = SOURCE_ROOT; };
@@ -60,6 +69,7 @@
 		B3239A8AB35BCF7972B6300C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		B54288832011575356E57EB2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BB576C6FD9B53CF07D9DD38D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BC5F6B2CE861C2E440175C37 /* AIBankSiriEvaluationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBankSiriEvaluationTests.swift; sourceTree = "<group>"; };
 		D74B47A96514493E3D6B55DD /* AIBankTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AIBankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E34B15C04D605C6587C08F /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
 		E40B56914260723C6A4CD05C /* BillPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillPayView.swift; sourceTree = "<group>"; };
@@ -124,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				9C0CBB332093973A4E454C49 /* AIBank */,
+				A3C4055A8DCBB59F38F3C329 /* AIBankSiriEvaluations */,
 				0714EC674F4BC6D6EA21D28B /* AIBankTests */,
 				26D27A82682CD23C42CEF812 /* Config */,
 				B579E49FCE699346FA043CC2 /* Packages */,
@@ -153,6 +164,14 @@
 			path = AIBank;
 			sourceTree = "<group>";
 		};
+		A3C4055A8DCBB59F38F3C329 /* AIBankSiriEvaluations */ = {
+			isa = PBXGroup;
+			children = (
+				BC5F6B2CE861C2E440175C37 /* AIBankSiriEvaluationTests.swift */,
+			);
+			path = AIBankSiriEvaluations;
+			sourceTree = "<group>";
+		};
 		B579E49FCE699346FA043CC2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				A72A9A4464A32D5BB0FDFE3C /* AIBank.app */,
+				67F6E9E418D48C56893B6E9B /* AIBankSiriEvaluations.xctest */,
 				D74B47A96514493E3D6B55DD /* AIBankTests.xctest */,
 			);
 			name = Products;
@@ -225,6 +245,24 @@
 			productReference = D74B47A96514493E3D6B55DD /* AIBankTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		BD7DD50BCAC8E256EF7A4EA1 /* AIBankSiriEvaluations */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F23665C0E02A800C9F07312 /* Build configuration list for PBXNativeTarget "AIBankSiriEvaluations" */;
+			buildPhases = (
+				6B5FF249DF05E1ED3093C2EE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E87E58D555428D5333F544A9 /* PBXTargetDependency */,
+			);
+			name = AIBankSiriEvaluations;
+			packageProductDependencies = (
+			);
+			productName = AIBankSiriEvaluations;
+			productReference = 67F6E9E418D48C56893B6E9B /* AIBankSiriEvaluations.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -234,6 +272,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					BD7DD50BCAC8E256EF7A4EA1 = {
+						TestTargetID = 2764BCC75ED1753D08725DFD;
+					};
 				};
 			};
 			buildConfigurationList = E2EC8C39794EF181FBBDCAA7 /* Build configuration list for PBXProject "AIBank" */;
@@ -254,6 +295,7 @@
 			projectRoot = "";
 			targets = (
 				2764BCC75ED1753D08725DFD /* AIBank */,
+				BD7DD50BCAC8E256EF7A4EA1 /* AIBankSiriEvaluations */,
 				76A698091736590CC6DBDABE /* AIBankTests */,
 			);
 		};
@@ -273,6 +315,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6B5FF249DF05E1ED3093C2EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81233682CC0CE985F434F512 /* AIBankSiriEvaluationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7A5029C4AF5EF3F4D9CAB698 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +356,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E87E58D555428D5333F544A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2764BCC75ED1753D08725DFD /* AIBank */;
+			targetProxy = 9FAD03A2870DD6DE7990FD4F /* PBXContainerItemProxy */;
+		};
 		EEDAF9BA9D6B09E3ABA41D75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2764BCC75ED1753D08725DFD /* AIBank */;
@@ -391,6 +446,23 @@
 			};
 			name = Debug;
 		};
+		51A9C4330A7722C755D17BD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.aibank.sirievaluations;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AIBank;
+			};
+			name = Release;
+		};
 		70F74F8FE70A6BF6DDE6C3CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,6 +529,23 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aiBank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aiBank";
 			};
 			name = Release;
+		};
+		E8CD061454F40FDEB1C82054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.aibank.sirievaluations;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AIBank;
+			};
+			name = Debug;
 		};
 		EB12674481B69B8D4EC56C87 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -528,6 +617,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F23665C0E02A800C9F07312 /* Build configuration list for PBXNativeTarget "AIBankSiriEvaluations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8CD061454F40FDEB1C82054 /* Debug */,
+				51A9C4330A7722C755D17BD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		4C682A98CC0BB7D55DD1EE20 /* Build configuration list for PBXNativeTarget "AIBankTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

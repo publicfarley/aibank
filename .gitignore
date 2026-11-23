@@ -7,3 +7,4 @@ DerivedData/
 .remember/
 Design/preview/
 Config/Local.xcconfig
+build/

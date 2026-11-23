@@ -66,6 +66,20 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.aibank.tests
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/aiBank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aiBank"
         BUNDLE_LOADER: "$(TEST_HOST)"
+  # Drives real Siri on a physical device; kept out of the AIBank scheme so normal test runs never do.
+  AIBankSiriEvaluations:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: AIBankSiriEvaluations
+    dependencies:
+      - target: AIBank
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.aibank.sirievaluations
+        # SiriService.run(scenario:) runs only from a UI test target.
+        TEST_TARGET_NAME: AIBank
 schemes:
   AIBank:
     build:
@@ -76,3 +90,11 @@ schemes:
         - AIBankTests
     run:
       config: Debug
+  AIBankSiriEvaluations:
+    build:
+      targets:
+        AIBank: all
+        AIBankSiriEvaluations: [test]
+    test:
+      targets:
+        - AIBankSiriEvaluations
